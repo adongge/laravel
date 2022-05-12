@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+    php:
+        image: adddge/php:8.0.7-fpm
+        restart: always
+    redis:
+        image: redis:latest
+        restart: always
+        ports:
+            - "6379:6379"
+    mysql:
+        image: mysql:8.0.25
+        restart: always
+        environment: 
+            - "MYSQL_ROOT_PASSWORD=root"
+        security_opt: 
+            - seccomp:unconfined
+        ports:
+            - "3306:3306"
+    nginx:
+        image:
+
+# docker-compose -f ./docker-compose.dev.yml up
