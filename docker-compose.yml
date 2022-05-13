@@ -4,21 +4,41 @@ services:
     php:
         image: adddge/php:8.0.7-fpm
         restart: always
+        environment:
+            TZ: "Asia/Shanghai"
+        volumes:
+            - "./:/var/www/html"
     redis:
         image: redis:latest
         restart: always
+        environment:
+            TZ: "Asia/Shanghai"
         ports:
-            - "6379:6379"
+            - "6371:6379"
     mysql:
-        image: mysql:8.0.25
+        image: mysql:8.0.27
         restart: always
-        environment: 
-            - "MYSQL_ROOT_PASSWORD=root"
+        environment:
+            TZ: "Asia/Shanghai"
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - "./docker/data/mysql:/var/lib/mysql"
+            - "./docker/logs/mysql:/var/log/mysql"
         security_opt: 
             - seccomp:unconfined
         ports:
-            - "3306:3306"
+            - "3301:3306"
     nginx:
-        image:
+        image: nginx:alpine
+        environment:
+            TZ: "Asia/Shanghai"
+        volumes:
+            - "./docker/nginx/conf.d:/etc/nginx/conf.d"
+            - "./:/opt/html"
+            - "./docker/logs/nginx:/var/log/nginx"
+        ports:
+            - "8081:80"
+        restart: unless-stopped
 
 # docker-compose -f ./docker-compose.dev.yml up
