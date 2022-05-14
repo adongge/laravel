@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Adong\One\OneServiceProvider::class,
 
         /*
          * Application Service Providers...
