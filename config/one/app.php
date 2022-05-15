@@ -19,231 +19,26 @@ return [
    ],
    'menus' => [
       [
-         'title'         => '企业基础信息',
-         'uri'           => 'company',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-book',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '投入品管理',
-         'uri'           => 'inputs',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-box',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '生产管理',
-         'uri'           => 'produce',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-grid',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '加工管理',
-         'uri'           => 'process',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-shopping-cart',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '销售流向',
-         'uri'           => 'sale',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-file-text',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '企业内审管理',
-         'uri'           => 'check',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-edit',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '检测信息',
-         'uri'           => 'testing',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-file',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '产品召回',
-         'uri'           => 'recall',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-rotate-cw',
-         'created_at'    => \Illuminate\Support\Carbon::now()
-      ],
-      [
-         'title'         => '追溯信息',
-         'uri'           => 'review',
-         'parent_id'     => 0,
-         'order'         => 0,
-         'icon'          => 'feather icon-search',
-         'created_at'    => \Illuminate\Support\Carbon::now()
+         'title'    => '木材信息', 'icon' => 'fa-group', 'uri' => null,
+         'children' => [
+            ['title' => '信息管理', 'icon' => 'fa-bars', 'uri' => '/info'],
+            ['title' => '参数管理', 'icon' => 'fa-user-secret', 'uri' => '/info_params'],
+         ]
       ]
    ],
-   'replace_prefix' => 'dasf_',
-   // 'integer',
-   // 'unsignedInteger',
-   // 'tinyInteger',
-   // 'unsignedTinyInteger',
-   // 'smallInteger',
-   // 'unsignedSmallInteger',
-   // 'mediumInteger',
-   // 'unsignedMediumInteger',
-   // 'bigInteger',
-   // 'unsignedBigInteger',
-   // 'date',
-   // 'time',
-   // 'dateTime',
-   // 'timestamp',
-   // 'enum',
-   // 'json',
-   // 'binary',
-   // 'float',
-   // 'double',
-   // 'decimal',
-   // 'string',
-   // 'char',
-   // 'text',
-   // 'mediumText',
-   // 'longText'
+   'replace_prefix' => 'ad_',
    'list' => [
       [
-         'table'        => 'service',//表名
-         'class_name'   => 'Service',//实例名
-         'comment'      => '预约列表',
-         'primary_key'  => 'id',//主键
-         'model'        => 1,
-         'controller'   => 1,
-         'repository'   => 1,
-         'migration'    => 1,
-         'migrate'      => 0,
-         'timestamps'   => 0,
-         'soft_deletes' => 1,
-         'lang'         => 1,
+         'table'        => 'info', 'class_name'   => 'Info', //表名，实例名
+         'comment'      => '信息表', 'primary_key'  => 'id', //主键
+         'model'        => 1, 'controller'   => 1, 'repository'   => 1,
+         'migration'    => 1, 'migrate'      => 0, 'timestamps'   => 1,
+         'soft_deletes' => 0, 'lang'         => 1, 'menu' => 'info',
          'fields' => [
-            [
-               'name' => 'name',
-               'type' => 'string',
-               'key' => '',
-               'comment' => '师傅姓名',
-               'translation' => '师傅姓名'
-            ],
-            [
-               'name' => 'mobile',
-               'type' => 'string',
-               'key' => '',
-               'comment' => '手机',
-               'translation' => '手机',
-               'form' => 'mobile'
-            ],
-            [
-               'name' => 'time_start',
-               'type' => 'dateTime',
-               'key' => '',
-               'comment' => '预约时间',
-               'translation' => '预约时间',
-               'form' => 'datetime'
-            ],
-            [
-               'name' => 'total',
-               'type' => 'integer',
-               'key' => '',
-               'default' => '0',
-               'comment' => '本次服务时长',
-               'translation' => '本次服务时长',
-               'form' => 'number'
-            ],
-            [
-               'name' => 'created_at',
-               'type' => 'dateTime',
-               'key' => '',
-               'nullable' => 'on',
-               'translation' => '',
-               'form' => 'display'
-            ],
-            [
-               'name' => 'updated_at',
-               'type' => 'dateTime',
-               'key' => '',
-               'nullable' => 'on',
-               'translation' => '',
-               'form' => 'display'
-            ]
-         ]
-      ],
-      [
-         'table'        => 'master_user',//表名
-         'class_name'   => 'MasterUser',//实例名
-         'comment'      => '师傅列表',
-         'primary_key'  => 'id',//主键
-         'model'        => 1,
-         'controller'   => 1,
-         'repository'   => 1,
-         'migration'    => 1,
-         'migrate'      => 0,
-         'timestamps'   => 0,
-         'soft_deletes' => 1,
-         'lang'         => 1,
-         'fields' => [
-            [
-               'name' => 'name',
-               'type' => 'string',
-               'key' => '',
-               'comment' => '师傅名称',
-               'translation' => '师傅名称'
-            ],
-            [
-               'name' => 'mobile',
-               'type' => 'string',
-               'key' => '',
-               'comment' => '手机',
-               'translation' => '手机',
-               'form' => 'mobile'
-            ],
-            [
-               'name' => 'password',
-               'type' => 'string',
-               'key' => '',
-               'comment' => '密码',
-               'translation' => '密码',
-               'form' => 'password'
-            ],
-            [
-               'name' => 'service_id',
-               'type' => 'unsignedInteger',
-               'key' => '',
-               'default' => '0',
-               'comment' => '当前服务',
-               'translation' => '当前服务',
-               'form' => 'text'
-            ],
-            [
-               'name' => 'created_at',
-               'type' => 'dateTime',
-               'key' => '',
-               'nullable' => 'on',
-               'translation' => '',
-               'form' => 'display'
-            ],
-            [
-               'name' => 'updated_at',
-               'type' => 'dateTime',
-               'key' => '',
-               'nullable' => 'on',
-               'translation' => '',
-               'form' => 'display'
-            ]
+            ['name' => 'unit', 'form' => 'text', 'nullable' => 'off', 'type' => 'string', 'key' => '', 'comment' => '单位', 'translation' => '单位'],
+            ['name' => 'used', 'form' => 'number', 'nullable' => 'off', 'type' => 'decimal', 'key' => '', 'comment' => '已使用', 'translation' => '已使用'],
+            ['name' => 'remain', 'form' => 'number', 'nullable' => 'off', 'type' => 'decimal', 'key' => '', 'comment' => '剩余', 'translation' => '剩余'],
+            ['name' => 'desc', 'form' => 'textarea', 'nullable' => 'off', 'type' => 'decimal', 'key' => '', 'comment' => '描述', 'translation' => '描述']
          ]
       ]
    ]
