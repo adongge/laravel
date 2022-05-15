@@ -19,7 +19,7 @@ return [
    ],
    'menus' => [
       [
-         'title'    => '木材信息', 'icon' => 'fa-group', 'uri' => null,
+         'title'    => '木材信息', 'icon' => 'fa-group', 'uri' => null, 'slug' => 'info',
          'children' => [
             ['title' => '信息管理', 'icon' => 'fa-bars', 'uri' => '/info'],
             ['title' => '参数管理', 'icon' => 'fa-user-secret', 'uri' => '/info_params'],
