@@ -8,6 +8,8 @@ services:
             TZ: "Asia/Shanghai"
         volumes:
             - "./:/var/www/html"
+        ports:
+            - "8001:8000"
     redis:
         image: redis:latest
         restart: always
